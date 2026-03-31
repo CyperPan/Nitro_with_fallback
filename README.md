@@ -29,6 +29,28 @@ Nitro is a distributed RL training engine that uses Hessian-based convexity dete
 | Stability (std, lower=better) | 42.9 | **29.0** | **-32.4%** |
 | Statistical significance | — | t=+2.61, **p<0.05** | |
 
+### Stability Analysis
+
+Fallback A wins on **all 10 stability metrics**:
+
+| Metric | Original Nitro | Nitro + Fallback | Improvement |
+|--------|:-:|:-:|:-:|
+| Seed-to-seed std (last 20) | 25.9 | **22.9** | -11% |
+| Round-to-round volatility \|Δr\| | 48.0 | **37.7** | **-21%** |
+| Round-to-round volatility (last 20) | 49.4 | **36.2** | **-27%** |
+| Mean max drawdown | 162.2 | **143.3** | -12% |
+| Worst-seed max drawdown | 184.8 | **175.6** | -5% |
+| Trend consistency R² (higher=better) | 0.331 | **0.564** | **+70%** |
+| Reward slope (reward/round) | 2.45 | **3.68** | **+50%** |
+| Drop-below-200 rate after reaching 200 | 41.7% | **26.2%** | **-37%** |
+| Coefficient of variation (last 20) | 0.201 | **0.123** | **-39%** |
+| Per-round improvement probability | 49.0% | **58.5%** | **+19%** |
+
+Key findings:
+- **Trend R² improves 70%** (0.33 to 0.56): reward curve is much closer to a stable upward trend
+- **Drop-below rate decreases 37%**: once reaching 200, Fallback A maintains it 74% of the time vs 58%
+- **Per-round improvement probability rises from 49% to 58.5%**: more rounds make positive progress
+
 ### Rollback Behavior
 
 ![Rollback Events](plots/fallback_a_rollback.png)
