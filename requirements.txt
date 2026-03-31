@@ -1,0 +1,12 @@
+torch 
+gymnasium==0.28.1
+gymnasium[atari,accept-rom-license]==0.28.1
+ray[rllib]==2.8
+mujoco
+mujoco-py
+pygame
+pandas
+cython<3
+redis
+statsmodels
+boto3
