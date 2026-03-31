@@ -176,23 +176,6 @@ python run_multi_seed.py --seeds 3 --mode no_fallback
 python plot_fallback_a_vs_baseline.py
 ```
 
-### Run on HPC (SLURM)
-
-```bash
-sbatch submit.sbatch
-```
-
-## Experimental Setup
-
-| Item | Configuration |
-|------|---------------|
-| Cluster | NEU Explorer HPC |
-| GPU | 1x NVIDIA V100-SXM2 16GB |
-| RL Environment | Hopper-v4 (MuJoCo) |
-| Algorithm | PPO |
-| Training rounds | 50 |
-| Seeds | 3 (Fallback A) / 5 (No Fallback) |
-| Actor range | 1-4 (limited by cluster CPUs) |
 
 ## References
 
